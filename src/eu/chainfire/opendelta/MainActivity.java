@@ -158,6 +158,7 @@ public class MainActivity extends BaseActivity {
     private Button mPauseBtn;
     private Button mRebootBtn;
     private TextView mCurrentVersion;
+    private TextView mMaintainer;
     private TextView mLastChecked;
     private TextView mDownloadSizeHeader;
     private TextView mDownloadSize;
@@ -209,6 +210,7 @@ public class MainActivity extends BaseActivity {
         mStopBtn = findViewById(R.id.button_stop);
         mPauseBtn = findViewById(R.id.button_pause);
         mCurrentVersion = findViewById(R.id.text_current_version);
+        mMaintainer = findViewById(R.id.text_maintainer);
         mLastChecked = findViewById(R.id.text_last_checked);
         mDownloadSize = findViewById(R.id.text_download_size);
         mDownloadSizeHeader = findViewById(R.id.text_download_size_header);
@@ -466,6 +468,7 @@ public class MainActivity extends BaseActivity {
                 final boolean setVersionTitle = !hideVersion && !TextUtils.isEmpty(updateVersionTitle);
                 if (setVersionTitle) mUpdateVersionTitle.setText(updateVersionTitle);
                 mCurrentVersion.setText(mConfig.getFilenameBase());
+                mMaintainer.setText(mConfig.getMaintainer());
                 mLastChecked.setText(lastCheckedText);
                 mExtraText.setText(extraText);
                 final boolean hideSize = TextUtils.isEmpty(downloadSizeText);

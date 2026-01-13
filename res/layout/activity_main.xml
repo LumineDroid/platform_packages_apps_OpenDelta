@@ -138,6 +138,19 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/ValueText" />
 
+    <TextView
+        android:id="@+id/text_maintainer_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_maintainer_header_title"
+        android:textAppearance="@style/HeaderText" />
+
+    <TextView
+        android:id="@+id/text_maintainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/ValueText" />
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp" />

@@ -51,6 +51,7 @@ public class Config {
     private final static String PREF_AB_WAKE_LOCK_NAME = "ab_wake_lock";
     private final static String PREF_AB_STREAM_NAME = "ab_stream_flashing";
     private final static String PROP_AB_DEVICE = "ro.build.ab_update";
+    private final static String PROP_MAINTAINER = "org.luminedroid.maintainer";
 
     private final SharedPreferences prefs;
 
@@ -62,6 +63,7 @@ public class Config {
     private final boolean support_ab_perf_mode;
     private final boolean use_twrp;
     private final String filename_base_prefix;
+    private final String maintainer;
     private final String url_branch_name;
     private final String url_base_json;
     private final String url_api_history;
@@ -80,6 +82,7 @@ public class Config {
         filename_base = String.format(Locale.ENGLISH,
                 res.getString(R.string.filename_base), property_version);
 
+        maintainer = SystemProperties.get(PROP_MAINTAINER, "Unknown");
         path_base = String.format(Locale.ENGLISH, "%s%s%s%s",
                 Environment.getExternalStorageDirectory().getAbsolutePath(),
                 File.separator, res.getString(R.string.path_base),
@@ -104,6 +107,7 @@ public class Config {
         Logger.d("property_device: %s", property_device);
         Logger.d("filename_base: %s", filename_base);
         Logger.d("filename_base_prefix: %s", filename_base_prefix);
+        Logger.d("maintainer: %s", maintainer);
         Logger.d("path_base: %s", path_base);
         Logger.d("path_flash_after_update: %s", path_flash_after_update);
         Logger.d("url_branch_name: %s", url_branch_name);
@@ -203,6 +207,10 @@ public class Config {
 
     public String getFileBaseNamePrefix() {
         return filename_base_prefix;
+    }
+
+    public String getMaintainer() {
+        return maintainer;
     }
 
     public String getUrlBranchName() {
